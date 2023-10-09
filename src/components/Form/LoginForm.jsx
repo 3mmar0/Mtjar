@@ -1,14 +1,18 @@
 import { FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import FormInput from "./FormInput";
-import { loginUser } from "../../slice/login/loginAction";
 import Button from "../Ui/Button";
-import FormModel from "../../models/form-model-login"
-
+import FormModelAuth from "../../models/form-model-auth";
 
 const LoginForm = () => {
   return (
-    <FormModel>
+    <FormModelAuth
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("wwed");
+      }}
+      isLogin
+    >
       <div className="bg-gray-200 w-64 flex items-center p-3 lg:w-61 mb-3">
         <FaRegEnvelope className="mr-3 text-gray-400 " />
         <FormInput type="email" name="email" placeholder="Email" />
@@ -30,12 +34,12 @@ const LoginForm = () => {
         </a>
       </div>
       <Button
-          type="submit"
-          text="Sign In"
-          variant={"default"}
-          className="bg-green-500"
-        />
-    </FormModel>
+        type="submit"
+        text="Sign In"
+        variant={"default"}
+        className="bg-green-500"
+      />
+    </FormModelAuth>
   );
 };
 

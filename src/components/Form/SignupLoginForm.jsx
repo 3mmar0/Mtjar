@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import Button from "../../components/Ui/Button";
 
-
-const SignupLoginForm = ({text}) => {
+const SignupLoginForm = ({ text, link }) => {
   return (
     <>
       <h2 className="text-white text-3xl font-bold mb-2 lg:text-2xl md:text-xl">
@@ -11,12 +11,9 @@ const SignupLoginForm = ({text}) => {
       <p className="text-white mb-2 md:text-sm">
         full up your personality information and start journey with us
       </p>
-      <Button
-          type="submit"
-          text={text}
-          variant={"default"}
-          className="mt-[40px]"
-        />
+      <Link to={link} className="mt-[40px]">
+        {text}
+      </Link>
     </>
   );
 };

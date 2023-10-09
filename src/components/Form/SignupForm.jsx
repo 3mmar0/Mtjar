@@ -2,6 +2,8 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline, MdDriveFileRenameOutline } from "react-icons/md";
 import FormInput from "./FormInput";
 import { Link } from "react-router-dom";
+import Button from "../Ui/Button";
+import FormModelAuth from "../../models/form-model-auth";
 // import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { registerUser } from "../../slice/reg/registerAction";
@@ -30,7 +32,12 @@ const SignupForm = () => {
   // useEffect(() => {});
 
   return (
-    <>
+    <FormModelAuth
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("wwed");
+      }}
+    >
       <div className="bg-gray-200 w-64 md:w-60 md:p-1 flex items-center p-3 mb-3 ">
         <MdDriveFileRenameOutline className="mr-3 text-gray-400" />
         <FormInput
@@ -74,7 +81,13 @@ const SignupForm = () => {
       <div className="flex justify-between w-64 md:text-sm md:w-60 my-3 text-green-500">
         <Link to="/login">Already have an acc?</Link>
       </div>
-    </>
+      <Button
+        type="submit"
+        text="Create an account"
+        variant={"default"}
+        className="bg-green-500"
+      />
+    </FormModelAuth>
   );
 };
 
